@@ -1,0 +1,70 @@
+import Vue from 'vue'
+import {
+  Button,
+  Toast,
+  NavBar,
+  Cell,
+  CellGroup,
+  List,
+  Image,
+  Icon,
+  Tab,
+  Tabs,
+  Field,
+  NoticeBar,
+  Sku,
+  Search,
+  Sticky,
+  DropdownMenu,
+  DropdownItem,
+  Tabbar,
+  TabbarItem,
+  Dialog,
+  Checkbox,
+  CheckboxGroup,
+  PasswordInput,
+  NumberKeyboard,
+  Popup,
+  DatetimePicker,
+  Overlay,
+  RadioGroup,
+  Radio,
+  Circle,
+  Uploader,
+  Switch,
+  SwitchCell,
+  Loading,
+  Picker
+} from 'vant'
+
+Vue.use(Button)
+Vue.use(Toast)
+Vue.use(NavBar)
+Vue.use(Cell)
+Vue.use(CellGroup)
+Vue.use(List)
+Vue.use(Image)
+Vue.use(Icon)
+Vue.use(Tab).use(Tabs)
+Vue.use(Field)
+Vue.use(NoticeBar)
+Vue.use(Sku)
+Vue.use(Search)
+Vue.use(Sticky)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+Vue.use(Tabbar).use(TabbarItem)
+Vue.use(Dialog)
+Vue.use(Checkbox).use(CheckboxGroup)
+Vue.use(PasswordInput).use(NumberKeyboard)
+Vue.use(Popup)
+Vue.use(DatetimePicker)
+Vue.use(Overlay)
+Vue.use(RadioGroup)
+Vue.use(Radio)
+Vue.use(Circle)
+Vue.use(Uploader)
+Vue.use(Switch)
+Vue.use(SwitchCell)
+Vue.use(Loading)
+Vue.use(Picker)
