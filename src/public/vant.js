@@ -36,7 +36,10 @@ import {
   Loading,
   Picker,
   Grid,
-  GridItem
+  GridItem,
+  Lazyload,
+  Swipe,
+  SwipeItem
 } from 'vant'
 
 Vue.use(Button)
@@ -71,3 +74,5 @@ Vue.use(SwitchCell)
 Vue.use(Loading)
 Vue.use(Picker)
 Vue.use(Grid).use(GridItem)
+Vue.use(Lazyload)
+Vue.use(Swipe).use(SwipeItem)

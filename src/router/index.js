@@ -14,7 +14,13 @@ const routes = [
     path: '/index',
     name: 'index',
     meta: { title: '鹿鹿买菜', auth: false, keepAlive: false },
-    component: () => import(/* webpackChunkName: "login" */ '../views/index.vue')
+    component: () => import(/* webpackChunkName: "index" */ '../views/index.vue')
+  },
+  {
+    path: '/index/map',
+    name: 'index-map',
+    meta: { title: '获取位置', auth: false, keepAlive: false },
+    component: () => import(/* webpackChunkName: "index" */ '../views/index/map.vue')
   },
   {
     path: '/',
