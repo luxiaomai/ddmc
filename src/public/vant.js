@@ -34,7 +34,9 @@ import {
   Switch,
   SwitchCell,
   Loading,
-  Picker
+  Picker,
+  Grid,
+  GridItem
 } from 'vant'
 
 Vue.use(Button)
@@ -68,3 +70,4 @@ Vue.use(Switch)
 Vue.use(SwitchCell)
 Vue.use(Loading)
 Vue.use(Picker)
+Vue.use(Grid).use(GridItem)
