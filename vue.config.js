@@ -8,13 +8,13 @@ module.exports = {
     open: false, // 配置自动启动浏览器
     proxy: {
       // 配置跨域处理 可以设置多个
-      '/ddmc': {
-        target: 'https://easy-mock.com/mock/5e0962dc1c1f71356ef22f06',
+      '/api': {
+        target: 'http://api.7-orange.cn:7300/mock/5def6a2d448e330a1116366e/api/',
         ws: true,
-        changeOrigin: true,
-        pathRequiresRewrite: { // 替换域名前缀
-          '^/ddmc': ''
-        }
+        changeOrigin: true
+        // pathRequiresRewrite: { // 替换域名前缀
+        //   '^/api': ''
+        // }
       }
     }
   }

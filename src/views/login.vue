@@ -1,38 +1,46 @@
 <template>
   <div>
     <div class="logo"><img src="../assets/logo.png"></div>
-      <van-field v-model="phoneNum" clearable border label="手机号" placeholder="请输入手机号" />
-      <van-field v-model="sms" maxlength="6" center clearable label="验证码" placeholder="请输入验证码">
+      <van-field type="tel" maxlength="11" v-model="phoneNumber" clearable border label="手机号" placeholder="请输入手机号" />
+      <van-field type="tel" v-model="sms" maxlength="6" center clearable label="验证码" placeholder="请输入验证码">
         <van-button class="smsButton" slot="button" size="small" v-show="show" @click="smsButton()">获取验证码</van-button>
         <van-button class="smsButton" slot="button" size="small" v-show="!show" @click="count">{{count}}秒后可重发</van-button>
       </van-field>
     <van-checkbox class="checked" v-model="checked" shape="square" icon-size="13px">我已阅读并同意<span>《服务协议及隐私条款》</span></van-checkbox>
-    <van-button  class="btn" type="info" size="large" @click="commitButton()" :disabled="!phoneNum || !sms || !checked">登录</van-button>
+    <van-button  class="btn" type="info" size="large" @click="commitButton()" :disabled="!phoneNumber || !sms || !checked">登录</van-button>
   </div>
 </template>
 
 <script>
+// 引入vuex
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
       checked: false,
       show: true,
       count: '',
-      sms: '',
-      phoneNum: ''
+      phoneNumber: '',
+      sms: ''
     }
   },
   methods: {
+    // mapActions 同步用户信息
+    ...mapActions(['syncuserInfo']),
+    // 登录提交
     commitButton () {
-      if (!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.phoneNum))) {
+      if (!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.phoneNumber))) {
         this.$toast('手机号码错误')
       } else {
-        let phoneNum = this.phoneNum
-        let code = this.sms
-        let param = { code, phoneNum }
+        let phone = this.phoneNumber
+        let captcha = this.sms
+        let param = { captcha, phone }
         this.$api.wechatLogin(param).then(res => {
-          let data = res.data.data
-          if (data.code === '1') {
+          let data = res.data
+          console.log(data)
+          console.log(data.data)
+          if (data.success_code === 200) {
+            this.syncuserInfo(data.data)
             this.$toast({
               message: data.message,
               duration: 2000,
@@ -46,19 +54,25 @@ export default {
         })
       }
     },
+    // 获取短信验证码
     smsButton () {
-      if (!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.phoneNum))) {
+      if (!(/^1[3|4|5|7|8|9]\d{9}$/.test(this.phoneNumber))) {
         this.$toast('手机号码错误')
       } else {
-        let phoneNum = this.phoneNum
+        let phoneNumber = this.phoneNumber
         let param = {
-          phoneNum
+          phoneNumber
         }
         this.$api.sendMsg(param).then(res => {
-          let data = res.data.data
-          console.log(data)
-          this.$toast(data.message)
-          this.getCode()
+          let data = res.data
+          if (data.success_code === 200) {
+            this.$dialog.alert({
+              message: '登录验证码' + data.data.code
+            }).then(() => {
+              // on close
+            })
+            this.getCode()
+          }
         })
       }
     },

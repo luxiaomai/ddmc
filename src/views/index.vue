@@ -19,7 +19,27 @@
         <Search />
         <Swiper :swiper_list="swiper_list" />
       </div>
+      <div class="text">
+        <ul>
+          <li>
+            <img src="../assets/images/transport.png">
+            最快29分钟送达
+          </li>
+          <li>
+            <img src="../assets/images/money.png">
+            0起送费 0配送费
+            </li>
+          <li>
+            <img src="../assets/images/seal.png">
+            安心退
+          </li>
+        </ul>
+      </div>
       <Nav :nav_list="nav_list" />
+      <div class="payCar">
+        <div class="left"><img src="../assets/images/b.png">加入绿卡会员·每年预计节省806元</div>
+        <div class="right">5折开卡></div>
+      </div>
     </div>
   </div>
 </template>
@@ -67,6 +87,49 @@ export default {
 .header {
   height: 290px;
   background: #49c75b;
+}
+.text {
+  color: #49c75b;
+  font-size: 12px;
+  padding: 10px 20px 0;
+  height: 30px;
+  line-height: 30px;
+  background: #fff;
+  li {
+    float: left;
+    margin-right: 15px;
+    img {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    margin-right: 5px;
+    float: left;
+    }
+  }
+}
+.payCar {
+  height: 40px;
+  line-height: 40px;
+  width: 330px;
+  padding: 0 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin: 10px auto;
+  color: #fff;
+  background: #49c75b;
+  .left {
+    float: left;
+    img {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+  }
+  .right {
+    float: right;
+  }
 }
 .poiaddress {
   height: 30px;
