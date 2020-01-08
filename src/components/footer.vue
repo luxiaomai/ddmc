@@ -62,7 +62,10 @@ export default {
     this.goodsNum()
   },
   watch: {
-    deep: true
+    deep: true,
+    'shopCart': function () {
+      this.goodsNum()
+    }
   },
   mounted () {
     this._initData()

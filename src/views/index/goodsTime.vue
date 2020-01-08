@@ -42,8 +42,7 @@
 <script>
 import BScroll from 'better-scroll'
 import { mapMutations, mapState } from 'vuex'
-// eslint-disable-next-line no-unused-vars
-import { ADD_TO_CART } from './../../store/mutation-types'
+// import { ADD_TO_CART } from './../../store/mutation-types'
 export default {
   props: {
     goods_time_list: Array
