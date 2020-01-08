@@ -39,7 +39,8 @@ import {
   GridItem,
   Lazyload,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  CountDown
 } from 'vant'
 
 Vue.use(Button)
@@ -75,4 +76,5 @@ Vue.use(Loading)
 Vue.use(Picker)
 Vue.use(Grid).use(GridItem)
 Vue.use(Lazyload)
+Vue.use(CountDown)
 Vue.use(Swipe).use(SwipeItem)

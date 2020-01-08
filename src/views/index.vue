@@ -17,7 +17,7 @@
           <div @click="selMap">{{addr}}</div>
         </div>
         <Search />
-        <Swiper :swiper_list="swiper_list" />
+        <Swiper/>
       </div>
       <div class="text">
         <ul>
@@ -35,12 +35,14 @@
           </li>
         </ul>
       </div>
-      <Nav :nav_list="nav_list" />
+      <Nav />
       <div class="payCar">
         <div class="left"><img src="../assets/images/b.png">加入绿卡会员·每年预计节省806元</div>
         <div class="right">5折开卡></div>
       </div>
+      <GoodsTimeBuy></GoodsTimeBuy>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -48,19 +50,25 @@
 import Nav from './index/nav'
 import Search from './index/search'
 import Swiper from './index/swiper'
+import GoodsTimeBuy from './index/goodsTimeBuy'
+import Footer from '../components/footer'
+
+import { mapMutations } from 'vuex'
+import { ADD_TO_CART } from './../store/mutation-types'
 export default {
   data () {
     return {
       isMap: false,
       lat: 24.44579,
       lng: 118.08243,
-      addr: '选择地址',
-      nav_list: [],
-      swiper_list: []
+      addr: '选择地址'
     }
   },
   methods: {
+    // Vuex中的方法
+    ...mapMutations(['ADD_TO_CART']),
     selMap () {
+      console.log(ADD_TO_CART)
       this.isMap = true
       let that = this
       window.addEventListener('message', function (event) {
@@ -78,7 +86,9 @@ export default {
   components: {
     Nav,
     Search,
-    Swiper
+    Swiper,
+    GoodsTimeBuy,
+    Footer
   }
 }
 </script>
