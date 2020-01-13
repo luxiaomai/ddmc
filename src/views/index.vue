@@ -41,6 +41,7 @@
         <div class="right">5折开卡></div>
       </div>
       <GoodsTimeBuy></GoodsTimeBuy>
+      <Feature></Feature>
     </div>
     <Footer></Footer>
   </div>
@@ -51,6 +52,7 @@ import Nav from './index/nav'
 import Search from './index/search'
 import Swiper from './index/swiper'
 import GoodsTimeBuy from './index/goodsTimeBuy'
+import Feature from './index/feature'
 import Footer from '../components/footer'
 
 import { mapMutations } from 'vuex'
@@ -88,12 +90,16 @@ export default {
     Search,
     Swiper,
     GoodsTimeBuy,
+    Feature,
     Footer
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.warp {
+  background: #fff;
+}
 .header {
   height: 290px;
   background: #49c75b;
